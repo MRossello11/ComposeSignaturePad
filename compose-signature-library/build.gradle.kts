@@ -21,17 +21,27 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    publishing {
+        multipleVariants {
+            withSourcesJar()
+            withJavadocJar()
+            allVariants()
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
 
             buildConfigField("int", "VERSION_CODE", androidGitVersion.code().toString())
             buildConfigField("String", "VERSION_NAME", "\"${androidGitVersion.name()}\"")
+            android.buildFeatures.buildConfig = true
         }
         debug {
             isMinifyEnabled = false
             buildConfigField("int", "VERSION_CODE", androidGitVersion.code().toString())
             buildConfigField("String", "VERSION_NAME", "\"${androidGitVersion.name()}\"")
+            android.buildFeatures.buildConfig = true
         }
     }
     buildFeatures {
@@ -44,6 +54,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
 }
 

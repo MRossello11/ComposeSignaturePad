@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.mrossello.compose_signature_library.BuildConfig
 import com.mrossello.compose_signature_library.SignaturePadAdapter
 import com.mrossello.compose_signature_library.SignaturePadView
 
